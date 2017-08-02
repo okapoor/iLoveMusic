@@ -1,0 +1,15 @@
+.navbar-default {
+	margin-bottom: 0;
+  background-color: #fff;
+  border-color: #D2D6DF;
+}
+.media-fluid {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+.site-search {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background: #ededed;
+}
