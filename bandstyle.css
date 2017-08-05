@@ -29,6 +29,7 @@ h2 {
 	margin: 20px;
 	padding: 20px;
 	font-size: 17px;
+	text-align: center;
 }
 
 .eventTable {
@@ -49,7 +50,7 @@ h2 {
 	border-radius: 10px;
 	border-color: lightgrey;
 	padding: 10px 10px 10px 10px;
-	margin-bottom: 20px;
+	margin: 10px 0 10px;
 }
 
 a {
@@ -116,12 +117,9 @@ img {
         border: 0;
       }
       .modal-body .close {
-        float: none;
-        margin: 0;
         font-size: 36px;
         color: #fff;
         font-weight: 300;
-        text-shadow: none;
         opacity: 1;
       }
 
