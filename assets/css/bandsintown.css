@@ -1,9 +1,6 @@
-/*tr:nth-child(even) {
-    background: lightgrey;
-}*/
-
-.bands {
-	background-image: url("background.jpg");
+/*background of bandsintown div*/
+#bandsintown {
+	background-image: url("../img/bandsintown.jpg");
 	background-repeat:no-repeat;
 	background-size:cover;
 }
@@ -31,17 +28,17 @@ h2 {
 	font-size: 17px;
 	text-align: center;
 }
-
+/*decorate table for event showed*/
 .eventTable {
 	background-color: rgba(255,255,255,0.5);
-	margin: 0 0 20px;
+	margin: 20px 0 20px;
 	padding: 20px 20px 10px 25px;
 	border-width: 1px;
 	border-style: solid;
 	border-radius: 10px;
 	border-color: lightgrey;
 }
-
+/*decorate left column*/
 .list {
 	color: white;
 	background-color: rgba(255,255,255,0.5);
@@ -50,10 +47,10 @@ h2 {
 	border-radius: 10px;
 	border-color: lightgrey;
 	padding: 10px 10px 10px 10px;
-	margin: 10px 0 10px;
+	margin: 30px 0 10px;
 }
-
-a {
+/*for more info*/
+#more {
 	display: inline-block;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -76,7 +73,7 @@ a {
 	font-weight: bold;
 }
 
-a:hover {
+#more:hover {
   	text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #00ffff , 0 0 70px #00ffff , 0 0 80px #00ffff , 0 0 100px #00ffff ;
   	text-decoration: none;
 }
@@ -89,13 +86,13 @@ a:hover {
 	border-radius: 10px;
 	border-color: lightgrey;
 	padding: 10px 10px 10px 10px;
-	margin-bottom: 30px;
+	margin:20px 0 30px;
 }
 
 img {
 	border-radius: 5px;	
 }
-
+/*modal decoration*/
 .modal-backdrop.in {
         filter: alpha(opacity=7);
         opacity: 0.7;
