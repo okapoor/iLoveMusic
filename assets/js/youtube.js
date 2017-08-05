@@ -18,7 +18,7 @@ function search(q) {
 	var request = gapi.client.youtube.search.list({
 		q: q,
 		part: 'snippet',
-		maxResults: 10,
+		maxResults: 4,
 		order: 'viewCount',
 		safeSearch: 'moderate',
 		type: 'video',
@@ -36,7 +36,7 @@ function onSearchResponse(response) {
   var videos = response.items;
 
   // Clear out youtube div
-  $('#youtube').html('');
+  $('#videos-row').html('');
 
   $.each( videos , function( index, video ) {
     var videoID = video.id.videoId;
@@ -51,12 +51,14 @@ function onSearchResponse(response) {
     col.append( item.append(image) );
 
     // append columns to the #youtube
-    $('#youtube').append( col );
+    $('#videos-row').append( col );
   });
 }
 
-// Gets the search input
+
 $(document).ready(function() {
+
+	// Gets the search input
   $('#searchButton').click(function(e) {
     e.preventDefault();
     var val = $('#search').val();
@@ -64,21 +66,23 @@ $(document).ready(function() {
     // Run the search
     search(val);
   });
+
+  // When a video is clicked load modal
+  $(document).on('click', '.video-item', function(event) {
+    event.preventDefault();
+
+    var videoId = $(this).attr('data-video-id');
+    var videoSrc = 'https://www.youtube.com/embed/'+ videoId + '?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0';
+
+    $('#modal-video .embed-responsive-item').attr( 'src', videoSrc );
+    $('#modal-video').modal();
+  });
+
+
+  // Stops Video from playing when modal is closed
+  $('#modal-video').on('hide.bs.modal', function (e) {
+    $('#modal-video .embed-responsive-item').attr( 'src', '' );
+  });
+
 });
 
-// When a video is clicked load modal
-$(document).on('click', '.video-item', function(event) {
-  event.preventDefault();
-
-  var videoId = $(this).attr('data-video-id');
-  var videoSrc = 'https://www.youtube.com/embed/'+ videoId + '?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0';
-
-  $('#modal-video .embed-responsive-item').attr( 'src', videoSrc );
-  $('#modal-video').modal();
-});
-
-
-// Stops Video from playing when modal is closed
-$('#modal-video').on('hide.bs.modal', function (e) {
-  $('#modal-video .embed-responsive-item').attr( 'src', '' );
-});
