@@ -3,33 +3,32 @@
 
 // Called automatically when JavaScript client library is loaded.
 function onClientLoad() {
-    gapi.client.load('youtube', 'v3', onYouTubeApiLoad);
+	gapi.client.load('youtube', 'v3', onYouTubeApiLoad);
 }
 
 // Called automatically when YouTube API interface is loaded (see line 9).
 function onYouTubeApiLoad() {
-    // This API key is intended for use only in this lesson.
-    // See http://goo.gl/PdPA1 to get a key for your own applications.
-    gapi.client.setApiKey('AIzaSyBWLFMCKJ6Uy5pVPe73pk-YGYfpAagp9x4');
+  // This API key is intended for use only in this lesson.
+  // See http://goo.gl/PdPA1 to get a key for your own applications.
+  gapi.client.setApiKey('AIzaSyBWLFMCKJ6Uy5pVPe73pk-YGYfpAagp9x4');
 }
 
 function search(q) {
+	// Use the JavaScript client library to create a search.list() API call.
+	var request = gapi.client.youtube.search.list({
+		q: q,
+		part: 'snippet',
+		maxResults: 10,
+		order: 'viewCount',
+		safeSearch: 'moderate',
+		type: 'video',
+		videoEmbeddable: true
+	});
 
-    // Use the JavaScript client library to create a search.list() API call.
-    var request = gapi.client.youtube.search.list({
-        q: q,
-        part: 'snippet',
-        maxResults: 10,
-        order: 'viewCount',
-        safeSearch: 'moderate',
-        type: 'video',
-        videoEmbeddable: true
-    });
-
-    // Send the request to the API server,
-    // and invoke onSearchRepsonse() with the response.
-    request.execute(onSearchResponse);
-}
+	// Send the request to the API server,
+	// and invoke onSearchRepsonse() with the response.
+	request.execute(onSearchResponse);
+	}
 
 // Called automatically with the response of the YouTube API request.
 function onSearchResponse(response) {
@@ -54,34 +53,32 @@ function onSearchResponse(response) {
     // append columns to the #youtube
     $('#youtube').append( col );
   });
-
-  // Gets the search input
-  $(document).ready(function() {
-    $('#searchButton').click(function(e) {
-      e.preventDefault();
-      var val = $('#search').val();
-
-      // Run the search
-      search(val);
-    });
-
-  });
-
-  // When a video is clicked load modal
-  $(document).on('click', '.video-item', function(event) {
-    event.preventDefault();
-
-    var videoId = $(this).attr('data-video-id');
-    var videoSrc = 'https://www.youtube.com/embed/'+ videoId + '?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0';
-
-    $('#modal-video .embed-responsive-item').attr( 'src', videoSrc );
-    $('#modal-video').modal();
-  });
-
-
-  // Stops Video from playing when modal is closed
-  $('#modal-video').on('hide.bs.modal', function (e) {
-    $('#modal-video .embed-responsive-item').attr( 'src', '' );
-  })
-
 }
+
+// Gets the search input
+$(document).ready(function() {
+  $('#searchButton').click(function(e) {
+    e.preventDefault();
+    var val = $('#search').val();
+
+    // Run the search
+    search(val);
+  });
+});
+
+// When a video is clicked load modal
+$(document).on('click', '.video-item', function(event) {
+  event.preventDefault();
+
+  var videoId = $(this).attr('data-video-id');
+  var videoSrc = 'https://www.youtube.com/embed/'+ videoId + '?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0';
+
+  $('#modal-video .embed-responsive-item').attr( 'src', videoSrc );
+  $('#modal-video').modal();
+});
+
+
+// Stops Video from playing when modal is closed
+$('#modal-video').on('hide.bs.modal', function (e) {
+  $('#modal-video .embed-responsive-item').attr( 'src', '' );
+});
