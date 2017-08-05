@@ -27,18 +27,23 @@ var instaGrid = $('#insta-row').imagesLoaded( function() {
 
 
 function populateSocial () {
+	console.log("Entered function")
 
 	event.preventDefault()
 
 	//Condition where the artist name has a space
 	var artistWithSpace = $("#search").val();
+	// var artistWithSpace = "drake"
+	console.log(artistWithSpace);
+
 	var artist = artistWithSpace.split(" ").join("+");
 	var fbIDURL = fbGetIDURL+artist+fbGetIDToken;
 	var instaAjaxURL = instaURL + artist + "/media?callback=?";
-
+	
 
 	//Instagram API start
 	$.getJSON(instaAjaxURL, function(result){
+		console.log("Instagram call successful")
 		//Empty out previous results
 		$('#insta-row').empty()
 		$('#insta-row').append('<div class="grid-sizer">');
@@ -211,6 +216,6 @@ function populateSocial () {
 
 }
 
-$(document).on("click", "#searchButton", populateSocial)
-
-console.log("this loaded")
+$(document).ready(function() {
+	$("#searchButton").on("click", populateSocial)
+})
