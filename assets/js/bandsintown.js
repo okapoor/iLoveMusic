@@ -5,9 +5,9 @@ var artistFB="";
 var artistName="";
 
 
-// when the search button execute, run searchBandsInTown function
+// when the document ready
 $(document).ready(function() {
-
+// when the search button execute, run searchBandsInTown function
   $("#searchButton").on("click", function(event) {
     event.preventDefault();
     var artistInput = $("#search").val().trim();
@@ -23,7 +23,7 @@ $(document).ready(function() {
   function searchBandsInTown(artistInput) {
     let queryArtist= 'https://rest.bandsintown.com/artists/' + artistInput + '?app_id=codingbootcamp';
     let queryEvent = 'https://rest.bandsintown.com/artists/' + artistInput + '/events?app_id=codingbootcamp';
-    
+    // run bandsintown info API
     $.ajax({
       url: queryArtist,
       method: "GET",
@@ -40,7 +40,7 @@ $(document).ready(function() {
         artistFB = response.facebook_page_url;
       }
     });
-    
+    // run bandsintown event API
     $.ajax({
       url: queryEvent,
       method: "GET",
@@ -70,7 +70,7 @@ $(document).ready(function() {
         }
       }
     });
-    
+    // run wikipedia API
     var wikiURL = "https://en.wikipedia.org/w/api.php";
     wikiURL += '?' + $.param({
     'action' : 'opensearch',
@@ -114,6 +114,8 @@ $(document).ready(function() {
       $("#article").slideUp(800);
         more=false;
       });
-  }
+  } 
+// end of the searchBandsInTown function
 
-});
+}); 
+// end the document

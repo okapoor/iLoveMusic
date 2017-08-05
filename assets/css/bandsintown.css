@@ -4,12 +4,11 @@
 	background-repeat:no-repeat;
 	background-size:cover;
 }
-
+/*set font size for table*/
 .td {
 	color: indigo;
 	font-size: 16px;
 }
-
 .th {
 	font-size: 18px;
 }
@@ -20,7 +19,7 @@ h2 {
 	padding: 0 0 10px 10px;
 	color: #fff;
 }
-
+/*decoration for more info*/
 #article {
 	color: white;
 	margin: 20px;
@@ -33,6 +32,11 @@ h2 {
 	background-color: rgba(255,255,255,0.5);
 	margin: 20px 0 20px;
 	padding: 20px 20px 10px 25px;
+}
+/*gruop decoration*/
+.eventTable,
+.noArtist,
+.list {
 	border-width: 1px;
 	border-style: solid;
 	border-radius: 10px;
@@ -42,10 +46,6 @@ h2 {
 .list {
 	color: white;
 	background-color: rgba(255,255,255,0.5);
-	border-width: 1px;
-	border-style: solid;
-	border-radius: 10px;
-	border-color: lightgrey;
 	padding: 10px 10px 10px 10px;
 	margin: 30px 0 10px;
 }
@@ -72,7 +72,6 @@ h2 {
 	text-decoration: none;
 	font-weight: bold;
 }
-
 #more:hover {
   	text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #00ffff , 0 0 70px #00ffff , 0 0 80px #00ffff , 0 0 100px #00ffff ;
   	text-decoration: none;
@@ -81,10 +80,6 @@ h2 {
 .noArtist {
 	color: white;
 	background-color: rgba(255,255,255,0.5);
-	border-width: 1px;
-	border-style: solid;
-	border-radius: 10px;
-	border-color: lightgrey;
 	padding: 10px 10px 10px 10px;
 	margin:20px 0 30px;
 }
@@ -97,26 +92,25 @@ img {
         filter: alpha(opacity=7);
         opacity: 0.7;
       }
-      .modal-content {
-        background: none;
-        border: 0;
-        -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;
-        -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
-      }
-      .modal-body {
-        padding: 0 25px 25px 25px;
-      }
-      .modal-header {
-        padding: 25px 25px 15px 25px;
-        text-align: right;
-      }
-      .modal-header, .modal-footer {
-        border: 0;
-      }
-      .modal-body .close {
-        font-size: 36px;
-        color: #fff;
-        font-weight: 300;
-        opacity: 1;
-      }
-
+.modal-content {
+background: none;
+border: 0;
+-moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;
+-moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+}
+.modal-body {
+padding: 0 25px 25px 25px;
+}
+.modal-header {
+padding: 25px 25px 15px 25px;
+text-align: right;
+}
+.modal-header, .modal-footer {
+border: 0;
+}
+.modal-body .close {
+font-size: 36px;
+color: #fff;
+font-weight: 300;
+opacity: 1;
+}
