@@ -13,3 +13,18 @@
 	padding-bottom: 10px;
 	background: #ededed;
 }
+
+.fbCard {
+	border: 1px solid black;
+	box-shadow:1px 3px 8px #4B80B4;
+	border-radius: 5px;
+	padding: 5px;
+	margin: 5px;
+}
+
+.fbMessage {
+	border-top: 1px solid teal;
+	font-family: 'Lato', sans-serif;
+	padding: 3px;
+	margin-top: 3px;
+}

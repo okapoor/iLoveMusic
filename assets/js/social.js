@@ -1,119 +1,166 @@
 var instaURL = "https://igpi.ga/"
 var fbURL = "https://graph.facebook.com/v2.10/?id=" 
-var fbAccessToken = "160526811177215|24f1091fcfbe3cf6a77775e061a9544f"
+var fbGetIDURL = "https://graph.facebook.com/v2.10/search?q="
+var fbGetIDToken = "&type=page&access_token=160526811177215|24f1091fcfbe3cf6a77775e061a9544f"
 var instaAccessToken = "&access_token=36374177.8899a4f.8288696c32cb409b8938cf3f0798ad20"
 var fbFields="&fields=posts{message,created_time,link,full_picture,type}&access_token=160526811177215|24f1091fcfbe3cf6a77775e061a9544f"
+
 
 
 var $grid = $('#fb-row').imagesLoaded( function() {
 	$grid.masonry({
 	itemSelector: '.fb-col',
-	columnWidth: '.fb-sizer',
+	columnWidth: '.col-sm-4',
 	percentPosition: true
 	});
 });
 
+var $instaGrid = $('#insta-row').imagesLoaded( function() {
+	$instaGrid.masonry({
+	itemSelector: '.insta-col',
+	columnWidth: '.col-sm-4',
+	percentPosition: true
+	});
+});
+
+
 function populateSocial () {
 	event.preventDefault()
-	var artist = $("#search").val();
-	var fbAjaxURL = fbURL+artist+fbFields;
+	var artistWithSpace = $("#search").val();
+	var artist = artistWithSpace.split(" ").join("+");
+	var fbIDURL = fbGetIDURL+artist+fbGetIDToken;
 	var instaAjaxURL = instaURL + artist + "/media?callback=?";
 
 
 
-	// $.getJSON(instaAjaxURL, function(response){
-	// 	console.log(response);
-	// })
-
-
-
-	$.ajax({
-		url: fbAjaxURL,
-		type: 'GET',
-	}).done(function(result) {
+	$.getJSON(instaAjaxURL, function(result){
 		console.log(result);
-		$('#fb-row').empty()
-		$('#fb-row').append('<div class="grid-sizer">');
-		var fbData = result.posts.data;
+		$('#insta-row').empty()
+		// $('#fb-row').append('<div class="grid-sizer">');
+		var instaData = result.items;
 
 		for (var i = 0;i<11;i++) {
-			var dataset = fbData[i];
+			var dataset = instaData[i];
 
-			var imgURL = dataset.full_picture;
+			var imgURL = dataset.images.standard_resolution.url;
 			var createdTime = dataset.created_time;
+			var message = dataset.caption.text;
+			var likes = dataset.likes.count;
 			var link = dataset.link;
-			var message = dataset.message;
 
-			console.log("=============")
-			// console.log("img URL : " + imgURL);
-			// console.log("created time : " + createdTime);
-			// console.log("link : " + link);
+			console.log("===== INSTAGRAM ========")
+			console.log(imgURL)
+			console.log(createdTime)
+			console.log(message)
+			console.log(likes)
+			console.log(link)
+			console.log("===== INSTAGRAM  END========")
+			var instaColumn    = $('<div class="col-sm-4 fb-col">');
+			var instaPostImg = $("<img>");
+			var instaCard = $("<div>")
+			var instaMessageDiv = $("<div>");
+			var instaImgURL = $("<a>")
 
-
-			var column    = $('<div class="col-sm-4 fb-col">');
-			var fbPostImg = $("<img>");
-			var fbCard = $("<div>")
-			var fbMessageDiv = $("<div>");
-
-			fbPostImg.attr({
+			instaMessageDiv.addClass("fbMessage")
+			instaCard.addClass("fbCard")
+			instaPostImg.attr({
 				src: imgURL,
-				class: "img-rounded img-responsive center-block"
+				class: " img-responsive center-block",
 			})
 
-			fbCard.append(fbPostImg);
+			instaImgURL.attr("href", link);
+			instaImgURL.attr("target", "_blank");
+			instaImgURL.append(instaPostImg);
 
-			var fbMessageDiv = $("<div>");
+			instaCard.append(instaImgURL);
 			
 			if (message) {
-				fbMessageDiv.text(message);
-				fbCard.append(fbMessageDiv);
+				instaMessageDiv.html(message+"<br>"+"Likes : " + likes);
+				instaCard.append(instaMessageDiv);
 				message = ""
 			}
-
-			column.append(fbCard)
+			console.log(instaCard)
+			instaColumn.append(instaCard)
 			console.log("We are appending")
-        // Masonry layout
-        $column =  $( column );
-        $grid.append( $column ).masonry( 'appended', $column );
-        $grid.imagesLoaded( function() {
-          $grid.masonry('layout');
-        });
-			// var fbCol = $("<div>");
-			// fbCol.addClass("col-md-3 col-sm-4 col-xs-6")
-
-			// var fbCard = $("<div>")
-			// var fbPostImg = $("<img>");
-			// var fbPostDiv = $("<div>");
-			// var fbMessageDiv = $("<div>");
-
-
-
-			// fbCard.addClass("panel panel-primary");
-			// fbPostDiv.addClass("panel-body");
-			// fbPostImg.addClass("img-rounded img-responsive center-block");
-			// fbPostImg.attr("src", imgURL);
-			// fbPostImg.css("width", "200px");
-			// fbPostImg.css("height", "200px");
-			// fbMessageDiv.addClass("panel-footer");
-
-
-			// fbPostDiv.append(fbPostImg);
-			// fbCard.append(fbPostDiv);
-
-			// if (message) {
-			// 	fbMessageDiv.text(message);
-			// 	fbCard.append(fbMessageDiv);
-			// 	message = ""
-			// }
-			// fbCol.append(fbCard);
-
-
 	        // Masonry layout
-
-			// $("#social").append(fbCol)
+	        $instaColumn =  $( instaColumn );
+	        $instaGrid.append( $instaColumn ).masonry( 'appended', $instaColumn );
+	        $instaGrid.imagesLoaded( function() {
+	          $instaGrid.masonry('layout');
+	        });
 		}
-
 	})
+
+
+
+	// fb ajax call
+	$.ajax({
+		url: fbIDURL,
+		type: "GET",
+	}).done(function(idresult){
+		var artistID = idresult.data[0].id;
+		var fbAjaxURL = fbURL+artistID+fbFields;
+
+		$.ajax({
+			url: fbAjaxURL,
+			type: 'GET',
+		}).done(function(result) {
+			console.log(result);
+			$('#fb-row').empty()
+			// $('#fb-row').append('<div class="grid-sizer">');
+			var fbData = result.posts.data;
+
+			for (var i = 0;i<11;i++) {
+				var dataset = fbData[i];
+
+				var imgURL = dataset.full_picture;
+				var createdTime = dataset.created_time;
+				var link = dataset.link;
+				var message = dataset.message;
+
+				console.log("=============")
+				console.log(link)
+				var column    = $('<div class="col-sm-4 fb-col">');
+				var fbPostImg = $("<img>");
+				var fbCard = $("<div>")
+				var fbMessageDiv = $("<div>");
+				var fbImgURL = $("<a>")
+
+				fbMessageDiv.addClass("fbMessage")
+				fbCard.addClass("fbCard")
+				fbPostImg.attr({
+					src: imgURL,
+					class: " img-responsive center-block",
+				})
+
+				fbImgURL.attr("href", link);
+				fbImgURL.attr("target", "_blank");
+				fbImgURL.append(fbPostImg);
+
+				fbCard.append(fbImgURL);
+				
+				if (message) {
+					fbMessageDiv.text(message);
+					fbCard.append(fbMessageDiv);
+					message = ""
+				}
+
+				column.append(fbCard)
+				console.log("We are appending")
+		        // Masonry layout
+		        $column =  $( column );
+		        $grid.append( $column ).masonry( 'appended', $column );
+		        $grid.imagesLoaded( function() {
+		          $grid.masonry('layout');
+		        });
+			}
+
+		})
+	})
+
+	//insta ajax call
+
+
 
 }
 
