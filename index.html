@@ -7,6 +7,8 @@
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+  <link rel="stylesheet" href="./assets/css/bandsintown.css">
   <script>
     $('.carousel').carousel()
   </script>
@@ -29,9 +31,9 @@
       <div class="collapse navbar-collapse" id="main-navigation">
         <form class="navbar-form navbar-right">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
+            <input type="text" class="form-control" placeholder="Search" id="search">
           </div>
-          <button type="submit" class="btn btn-default">Submit</button>
+          <button type="submit" class="btn btn-default" id="searchButton">Submit</button>
         </form>
       </div><!-- /.navbar-collapse -->
 
@@ -64,9 +66,55 @@
     </a>
   </div><!-- /.site-feature -->
 
+<!-- div bandsintown start -->
   <div class="row" id="bandsintown">
+  <div class="container"> <!-- start of container -->
 
-  </div>
+    <div class="row"> <!-- div row start   -->
+<!-- div for no artist found -->
+      <div class="noArtist"></div>
+<!-- div bandsintown left column start --> 
+      <div class="col-sm-4">
+        <div class="modal fade" id="imageModal" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <img class="img-responsive modalImage" src=''></img>
+                </div>
+              </div>  
+            </div>
+          </div> 
+        <div class="list"></div>
+      </div>
+<!-- div bandsintown left column end --> 
+<!-- div bandsintown right column start -->       
+      <div class="col-sm-8">
+      <div class="eventTable">
+        <div><h2>EVENT</h2></div>
+        <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th class="th">Date / Time</th>
+              <th class="th">Vanue</th>
+              <th class="th">Location</th>
+            </tr>
+          </thead>
+            <tbody class="event table-hover"> 
+            </tbody>
+          </table>
+      </div>
+      </div>
+<!-- div bandsintown right column end -->  
+    </div> <!-- div row end   --> 
+ 
+<!-- div to show article   -->
+  <div id="article"></div>
+
+    </div>  <!-- div row end   -->
+  </div>  <!-- end of container -->
+  </div>  
+<!-- div bandsintown end -->
   <div class="row" id="youtube">
 
   </div>
@@ -79,5 +127,8 @@
   <div class="row" id="weather">
 
   </div>
+
+
+<script type="text/javascript" src="./assets/js/bandsintown.js"></script>
 </body>
 </html>
