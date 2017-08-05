@@ -18,7 +18,7 @@ function search(q) {
 	var request = gapi.client.youtube.search.list({
 		q: q,
 		part: 'snippet',
-		maxResults: 4,
+		maxResults: 12,
 		order: 'viewCount',
 		safeSearch: 'moderate',
 		type: 'video',
