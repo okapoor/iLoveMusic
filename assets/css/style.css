@@ -14,6 +14,7 @@
 	background: #ededed;
 }
 
+
 .fbCard {
 	border: 1px solid black;
 	box-shadow:1px 3px 8px #3b5998;
@@ -92,4 +93,69 @@
 	width: 20px;
 	height: 20px;
 	/*display: inline-block;*/
+
+/*------------------------------------*\
+	#Video
+\*------------------------------------*/
+
+.col-video {
+  margin-bottom: 15px;
+}
+.video-item {
+  padding: 10px;
+  border: solid 1px #ededed;
+  box-shadow: 0 2px 0 0 rgba( 0, 0, 0, .1 );
+  position: relative;
+}
+.video-item:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -25px;
+  margin-left: -25px;
+  width: 75px;
+  height: 75px;
+  background: url('../img/icon-play.png') no-repeat center center;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+.media-fluid {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/*------------------------------------*\
+	#Modal
+\*------------------------------------*/
+
+.modal-backdrop.in {
+  filter: alpha(opacity=7);
+  opacity: 0.7;
+}
+.modal-content {
+  background: none;
+  border: 0;
+  -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;
+  -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+}
+.modal-body {
+  padding: 0;
+}
+.modal-header {
+  padding: 0;
+  text-align: right;
+}
+.modal-header, .modal-footer {
+  border: 0;
+}
+.modal-header .close {
+  float: none;
+  margin: 0;
+  font-size: 36px;
+  color: #fff;
+  font-weight: 300;
+  text-shadow: none;
+  opacity: 1;
 }
