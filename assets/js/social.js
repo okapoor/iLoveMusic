@@ -1,5 +1,5 @@
 var instaURL = "https://igpi.ga/"
-var fbURL = "https://graph.facebook.com/v2.10/?id=" 
+var fbURL = "https://graph.facebook.com/v2.10/?id="
 var fbAccessToken = "160526811177215|24f1091fcfbe3cf6a77775e061a9544f"
 var instaAccessToken = "&access_token=36374177.8899a4f.8288696c32cb409b8938cf3f0798ad20"
 var fbFields="&fields=posts{message,created_time,link,full_picture,type}&access_token=160526811177215|24f1091fcfbe3cf6a77775e061a9544f"
@@ -63,7 +63,7 @@ function populateSocial () {
 			fbCard.append(fbPostImg);
 
 			var fbMessageDiv = $("<div>");
-			
+
 			if (message) {
 				fbMessageDiv.text(message);
 				fbCard.append(fbMessageDiv);
