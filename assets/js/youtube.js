@@ -25,6 +25,8 @@ function search(q) {
 		videoEmbeddable: true
 	});
 
+  console.log(request);
+
 	// Send the request to the API server,
 	// and invoke onSearchRepsonse() with the response.
 	request.execute(onSearchResponse);
@@ -62,6 +64,8 @@ $(document).ready(function() {
   $('#searchButton').click(function(e) {
     e.preventDefault();
     var val = $('#search').val();
+
+    console.log('Youtube' + val);
 
     // Run the search
     search(val);
