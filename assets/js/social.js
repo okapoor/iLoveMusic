@@ -33,7 +33,7 @@ function populateSocial () {
 	}).done(function(result) {
 		console.log(result);
 		$('#fb-row').empty()
-		$('#fb-row').append('<div class="grid-sizer">');
+		// $('#fb-row').append('<div class="fb-sizer">');
 		var fbData = result.posts.data;
 
 		for (var i = 0;i<11;i++) {
