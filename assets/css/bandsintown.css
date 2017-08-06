@@ -5,6 +5,18 @@
 	background-size:cover;
 }
 
+.footer {
+	background-image: url("../img/footer.jpg");
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+
+.copyright {
+	color: #003ea0;
+	font: normal 16px/normal "Warnes", Helvetica, sans-serif;
+	font-weight: bold;
+}
+
 .td {
 	color: indigo;
 	font-size: 16px;
