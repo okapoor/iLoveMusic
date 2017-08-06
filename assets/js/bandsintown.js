@@ -2,13 +2,13 @@
 var ArtistURL="";
 var artistThumbURL="";
 var artistName="";
-
+var more=false;
 
 $(document).ready(function() {
 // when document ready, hide most of the div and show some div
   $("#bandsintown, #youtube, #social, #instagram, #article").hide();
 
-// when the search button execute, run searchBandsInTown function, show most of the div and hide some div
+// when the search button executed, run searchBandsInTown function, show most of the div and hide some div
   $("#searchButton").on("click", function(event) {
     $("#bandsintown, #youtube, #social, #instagram").show();
     event.preventDefault();
@@ -19,7 +19,6 @@ $(document).ready(function() {
     $("#search").val("");
     searchBandsInTown(artistInput);
   });
-
 
 // function searchBandsInTown start for search the artist including all the information
   function searchBandsInTown(artistInput) {
@@ -75,7 +74,7 @@ $(document).ready(function() {
     });
     
     // run WIKIPEDIA API to get more info about the artist
-    var wikiURL = "https://en.wikipedia.org/w/api.php";
+    let wikiURL = "https://en.wikipedia.org/w/api.php";
     wikiURL += '?' + $.param({
     'action' : 'opensearch',
     'search' : artistInput,
@@ -95,29 +94,35 @@ $(document).ready(function() {
         $('#article').append(article);
       }
     });
-
-    // when the image click, show the modal
-    $(document).on("click", ".image", function() {
-      $('.modalImage').attr('src', ArtistURL); 
-    });
-
-    // when more information requested, show the article
-    var more=false;
-    $(document).on("click", "#more", function() {
-      if (!more) {
-        $("#article").slideDown(800);
-        more=true;
-      } else {
-        $("#article").slideUp(800);
-        more=false;
-      }
-    });
-
-    // hide the article when it clicked
-    $(document).on("click", "#article", function() {
-      $("#article").slideUp(800);
-        more=false;
-    });
   } /*function searchBandsInTown end*/
+
+  // hide the article when it clicked
+  $(document).on("click", "#article", function() {
+    $("#article").slideUp(800);
+      more=false;
+  });
+
+  // when more information requested, show the article
+  $(document).on("click", "#more", function() {
+    if (!more) {
+      $("#article").slideDown(800);
+      more=true;
+    } else {
+      $("#article").slideUp(800);
+      more=false;
+    }
+  });
+
+  // when the image clicked, show the modal
+  $(document).on("click", ".image", function() {
+    $('.modalImage').attr('src', ArtistURL); 
+  });
+
+  // when carousel clicked, go to that artist
+  $(document).on("click", "#carousel", function() {
+    var artist = ($(this).attr("artistName"));
+    $("#search").val(artist);
+    $("#searchButton").click();
+  });
 
 });
