@@ -129,21 +129,24 @@ body {
 #youtube {
   padding-top: 60px;
   padding-bottom: 60px;
-  background-color: #F8F8FA;
-  /*background-color: #f037a5;*/
-  /*background: linear-gradient(#fae62d -30%,#f037a5 150%);*/
+  background: linear-gradient( #000 -30%, rgba( 0,0,0, .15) 150% ), url('../img/videos-bg-2.jpg') no-repeat center center;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 .page-header {
+  color: #cc181e;
+  font-family: 'Lato', sans-serif;
   margin: 10px 0 20px;
+  border-bottom: solid 5px #cc181e;
 }
 .col-video {
   margin-bottom: 30px;
 }
 .video-item {
   font-family: 'Lato', sans-serif;
-  border-color: #ededed;
+  border-color: #000;
   border-style: solid;
-  border-width: 1px;
+  border-width: 2px;
   background: #fff;
   box-shadow: 0 2px 0 0 rgba( 0, 0, 0, .1 );
 }
