@@ -15,7 +15,26 @@
   <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
   <link rel="stylesheet" href="./assets/css/bandsintown.css">
   <script>
-    $('.carousel').carousel()
+    $(document).ready(function() {
+
+      // Calls Carousel
+      $('.carousel').carousel();
+
+      // Smooth Scroll
+      $('.smooth-scroll').click(function() {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+          if (target.length) {
+            $('html,body').animate({
+              scrollTop: target.offset().top
+            }, 800);
+            return false;
+          }
+        }
+      });
+
+    });
   </script>
 </head>
 <body>
@@ -70,6 +89,20 @@
       <span class="sr-only">Next</span>
     </a>
   </div><!-- /.site-feature -->
+
+  <nav class="navbar navbar-inverse navbar-subnav">
+    <div class="container-fluid">
+
+      <div id="sub-navigation" class="">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#bandsintown" class="smooth-scroll">About</a></li>
+          <li><a href="#youtube" class="smooth-scroll">Videos</a></li>
+          <li><a href="#social" class="smooth-scroll">Social</a></li>
+        </ul><!-- /.navbar -->
+      </div><!-- /.navbar-collapse -->
+
+    </div><!-- /.container-fluid -->
+  </nav><!-- /.navbar-subnav -->
 
 <!-- div bandsintown start -->
   <div class="row" id="bandsintown">
