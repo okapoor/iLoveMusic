@@ -44,21 +44,24 @@ function onSearchResponse(response) {
     var thumb       = video.snippet.thumbnails.medium.url;
     var title       = video.snippet.title;
     var description = video.snippet.description;
-        description = description.substring(0, 130);
+        description = description.substring(0, 130) + '...';
     var published   = video.snippet.publishedAt;
         published   = moment(published).format('MMMM Do YYYY');
 
     var col   = $('<div class="col-video col-sm-4">');
-    var item  = $('<div class="video-item" data-video-id="">');
-        item.attr('data-video-id', videoID );
+    var item  = $('<div class="video-item">');
 
-    var imgWrap     = $('<div class="video-item-img">');
+    var imgWrap     = $('<div class="video-item-img" data-video-id="">');
+        imgWrap.attr('data-video-id', videoID );
+
     var image       = $('<img>');
         image.attr('src', thumb ).addClass('media-fluid');
         imgWrap.append( image );
 
-    var videoMeta = $('<div class="video-item-meta">');
-        videoMeta.html('<small>Published on: '+ published +'</small><br><p class="video-item-title"><strong>'+ title +'</strong></p><p class="video-item-desc">'+ description +'</p>');
+    var icon = '<a href="https://www.youtube.com/watch?v='+ videoID +'" target="_blank" data-toggle="tooltip" data-placement="top" title="Watch on Youtube" class="video-item-icon"><img src="assets/img/icon-youtube.png" width="24"></a>';
+
+    var videoMeta = $( '<div class="video-item-meta">' );
+        videoMeta.html( '<p class="video-item-published">'+ icon  +'<small>Published on: '+ published +'</small></p><p class="video-item-title"><strong>'+ title +'</strong></p><p class="video-item-desc">'+ description +'</p>');
 
     item.append( imgWrap );
     item.append( videoMeta );
@@ -82,7 +85,7 @@ $(document).ready(function() {
   });
 
   // When a video is clicked load modal
-  $(document).on('click', '.video-item', function(event) {
+  $(document).on('click', '.video-item-img', function(event) {
     event.preventDefault();
 
     var videoId = $(this).attr('data-video-id');
@@ -91,7 +94,6 @@ $(document).ready(function() {
     $('#modal-video .embed-responsive-item').attr( 'src', videoSrc );
     $('#modal-video').modal();
   });
-
 
   // Stops Video from playing when modal is closed
   $('#modal-video').on('hide.bs.modal', function (e) {

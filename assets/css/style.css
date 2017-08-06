@@ -129,21 +129,29 @@ body {
 #youtube {
   padding-top: 60px;
   padding-bottom: 60px;
-  background-color: #F8F8FA;
-  /*background-color: #f037a5;*/
-  /*background: linear-gradient(#fae62d -30%,#f037a5 150%);*/
+  background: linear-gradient( #000 -30%, rgba( 0,0,0, .15) 150% ), url('../img/videos-bg-2.jpg') no-repeat center center;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 .page-header {
+  color: #cc181e;
+  font-family: 'Lato', sans-serif;
   margin: 10px 0 20px;
+  border-bottom: solid 5px #cc181e;
 }
 .col-video {
   margin-bottom: 30px;
 }
 .video-item {
   font-family: 'Lato', sans-serif;
-  border: solid 1px #ededed;
+  border-color: #000;
+  border-style: solid;
+  border-width: 2px;
   background: #fff;
   box-shadow: 0 2px 0 0 rgba( 0, 0, 0, .1 );
+}
+.video-item:hover {
+  border-color: #cc181e;
 }
 .video-item-img {
   position: relative;
@@ -151,13 +159,13 @@ body {
   -moz-transition: all 0.3s;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  border-color: #5D54A3;
+  border-color: #cc181e;
   border-bottom-style: solid;
   border-bottom-width: 5px;
 }
-.video-item-img:hover {
+.video-item:hover .video-item-img {
   cursor: pointer;
- border-color: #E1A785;
+  border-color: #ededed;
 }
 .video-item-img:after {
   content: '';
@@ -178,26 +186,33 @@ body {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
-.video-item-img:hover img {
+.video-item:hover .video-item-img img {
   -moz-transform: scale( 1.2 );
   -webkit-transform: scale( 1.2 );
   transform: scale( 1.2 );
 }
-.video-item-title {
-  color: #5D54A3;
-  height: 40px;
-  overflow: hidden;
-}
-.video-item-desc {
-  height: 60px;
-  margin-bottom: 0;
-  overflow: hidden;
-}
 .video-item-meta {
+  height: 160px;
+  overflow: hidden;
   padding: 10px 15px;
+}
+.video-item-published {
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  border-bottom: solid 1px #ededed;
+}
+.video-item-icon {
+  margin-right: 5px;
 }
 .video-item-meta small {
   color: #666A73;
+}
+.video-item-title {
+  color: #cc181e;
+  margin-bottom: 5px;
+}
+.video-item-desc {
+  margin-bottom: 0;
 }
 .media-fluid {
   width: 100%;
