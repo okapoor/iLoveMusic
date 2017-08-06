@@ -1,17 +1,19 @@
-// declare all variables use for bandsintown
+// declare variables
 var ArtistURL="";
 var artistThumbURL="";
-var artistFB="";
 var artistName="";
 
 
-// when the search button execute, run searchBandsInTown function
 $(document).ready(function() {
+// when document ready, hide most of the div and show some div
+  $("#bandsintown, #youtube, #social, #instagram, #article").hide();
 
+// when the search button execute, run searchBandsInTown function, show most of the div and hide some div
   $("#searchButton").on("click", function(event) {
+    $("#bandsintown, #youtube, #social, #instagram").show();
     event.preventDefault();
     var artistInput = $("#search").val().trim();
-    $("#article").hide();
+    $("#article, #feature-carousel").hide();
     $(".event").empty();
     $(".list").empty();
     $("#search").val("");
@@ -19,11 +21,12 @@ $(document).ready(function() {
   });
 
 
-// function to search the artist including all the information
+// function searchBandsInTown start for search the artist including all the information
   function searchBandsInTown(artistInput) {
     let queryArtist= 'https://rest.bandsintown.com/artists/' + artistInput + '?app_id=codingbootcamp';
     let queryEvent = 'https://rest.bandsintown.com/artists/' + artistInput + '/events?app_id=codingbootcamp';
     
+    // run bandsintown API to get the info
     $.ajax({
       url: queryArtist,
       method: "GET",
@@ -37,10 +40,10 @@ $(document).ready(function() {
         artistName = response.name;
         artistThumbURL = response.thumb_url;
         ArtistURL = response.image_url;
-        artistFB = response.facebook_page_url;
       }
     });
     
+    // run bandsintown API to get the events
     $.ajax({
       url: queryEvent,
       method: "GET",
@@ -57,7 +60,7 @@ $(document).ready(function() {
         $(".list").show();
         $(".eventTable").show();
         if (!response.length) {
-          $(".event").html('No upcoming event...');
+          $(".event").html('<br>No upcoming event...');
         } else {
           $(".eventHeader").append(event);
           for (let i = 0; i < 10; i++) {
@@ -71,6 +74,7 @@ $(document).ready(function() {
       }
     });
     
+    // run WIKIPEDIA API to get more info about the artist
     var wikiURL = "https://en.wikipedia.org/w/api.php";
     wikiURL += '?' + $.param({
     'action' : 'opensearch',
@@ -92,12 +96,12 @@ $(document).ready(function() {
       }
     });
 
-// when the image click, show the modal
+    // when the image click, show the modal
     $(document).on("click", ".image", function() {
       $('.modalImage').attr('src', ArtistURL); 
     });
 
-// when more information requeested
+    // when more information requested, show the article
     var more=false;
     $(document).on("click", "#more", function() {
       if (!more) {
@@ -109,11 +113,11 @@ $(document).ready(function() {
       }
     });
 
-// to hide the article
+    // hide the article when it clicked
     $(document).on("click", "#article", function() {
       $("#article").slideUp(800);
         more=false;
-      });
-  }
+    });
+  } /*function searchBandsInTown end*/
 
 });
