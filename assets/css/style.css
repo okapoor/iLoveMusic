@@ -1,7 +1,22 @@
+body {
+  position: relative;
+}
+.site-header.affix {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+.navbar {
+  border-radius: 0;
+  margin-bottom: 0;
+  min-height: auto;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
 .navbar-default {
-	margin-bottom: 0;
-  background-color: #fff;
-  border-color: #D2D6DF;
+  border-bottom-color: #D2D6DF;
+  background-color: rgba( 255, 255, 255, .90 );
 }
 .media-fluid {
 	width: 100%;
@@ -13,8 +28,6 @@
 	padding-bottom: 10px;
 	background: #ededed;
 }
-
-
 .fbCard {
 	border: 1px solid black;
 	box-shadow:1px 3px 8px #3b5998;
@@ -94,6 +107,21 @@
 	height: 20px;
 	/*display: inline-block;*/
 }
+
+/*------------------------------------*\
+  #Artist Navigation
+\*------------------------------------*/
+
+.navbar-subnav .navbar-nav {
+  margin: 0 -15px;
+}
+.navbar-subnav .navbar-nav > li {
+  float: left;
+}
+.navbar-subnav .navbar-nav > li a {
+  text-transform: uppercase;
+}
+
 /*------------------------------------*\
 	#Video
 \*------------------------------------*/
