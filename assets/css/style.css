@@ -1,7 +1,25 @@
+body {
+  position: relative;
+}
+.navbar {
+  border-radius: 0;
+  margin-bottom: 0;
+  min-height: auto;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
 .navbar-default {
-	margin-bottom: 0;
+  border-bottom-color: #D2D6DF;
   background-color: #fff;
-  border-color: #D2D6DF;
+}
+.navbar-subnav .navbar-nav {
+  margin: 0 -15px;
+}
+.navbar-subnav .navbar-nav > li {
+  float: left;
+}
+.navbar-subnav .navbar-nav > li a {
+  text-transform: uppercase;
 }
 .media-fluid {
 	width: 100%;
@@ -13,8 +31,6 @@
 	padding-bottom: 10px;
 	background: #ededed;
 }
-
-
 .fbCard {
 	border: 1px solid black;
 	box-shadow:1px 3px 8px #3b5998;
@@ -93,6 +109,16 @@
 	width: 20px;
 	height: 20px;
 	/*display: inline-block;*/
+}
+
+/*------------------------------------*\
+  #Artist Navigation
+\*------------------------------------*/
+.navbar-subnav.affix {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
 }
 /*------------------------------------*\
 	#Video

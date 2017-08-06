@@ -37,7 +37,7 @@
     });
   </script>
 </head>
-<body>
+<body data-spy="scroll" data-target="#artist-navigation">
 
   <nav class="navbar navbar-default">
     <div class="container">
@@ -63,6 +63,16 @@
 
     </div><!-- /.container-fluid -->
   </nav><!-- /.navbar -->
+
+  <nav id="artist-navigation" data-spy="affix" class="navbar navbar-inverse navbar-subnav" data-offset-top="52">
+    <div class="container">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#bandsintown" class="smooth-scroll">About</a></li>
+        <li><a href="#youtube" class="smooth-scroll">Videos</a></li>
+        <li><a href="#social" class="smooth-scroll">Social</a></li>
+      </ul><!-- /.navbar-nav -->
+    </div><!-- /.container -->
+  </nav><!-- /.navbar-subnav -->
 
   <div id="feature-carousel" class="site-feature carousel slide" data-ride="carousel">
     <div class="carousel-inner" role="listbox">
@@ -90,19 +100,7 @@
     </a>
   </div><!-- /.site-feature -->
 
-  <nav class="navbar navbar-inverse navbar-subnav">
-    <div class="container-fluid">
 
-      <div id="sub-navigation" class="">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#bandsintown" class="smooth-scroll">About</a></li>
-          <li><a href="#youtube" class="smooth-scroll">Videos</a></li>
-          <li><a href="#social" class="smooth-scroll">Social</a></li>
-        </ul><!-- /.navbar -->
-      </div><!-- /.navbar-collapse -->
-
-    </div><!-- /.container-fluid -->
-  </nav><!-- /.navbar-subnav -->
 
 <!-- div bandsintown start -->
   <div class="row" id="bandsintown">
