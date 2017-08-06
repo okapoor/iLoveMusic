@@ -18,45 +18,57 @@ function search(q) {
 	var request = gapi.client.youtube.search.list({
 		q: q,
 		part: 'snippet',
-		maxResults: 12,
+		maxResults: 9,
 		order: 'viewCount',
 		safeSearch: 'moderate',
 		type: 'video',
 		videoEmbeddable: true
 	});
 
-  console.log(request);
-
 	// Send the request to the API server,
 	// and invoke onSearchRepsonse() with the response.
 	request.execute(onSearchResponse);
-	}
+}
 
 // Called automatically with the response of the YouTube API request.
 function onSearchResponse(response) {
-  // console.log(response);
+
   var videos = response.items;
+  console.log( videos );
 
   // Clear out youtube div
   $('#videos-row').html('');
 
   $.each( videos , function( index, video ) {
-    var videoID = video.id.videoId;
-    var thumb = video.snippet.thumbnails.medium.url;
-    var col   = $('<div class="col-video col-sm-3">');
-    var item  = $('<div class="video-item" data-video-id="">');
-    item.attr('data-video-id', videoID );
-    var embed = $('<div class="embed-responsive embed-responsive-16by9">');
-    var image = $('<img>');
-    image.attr('src', thumb ).addClass('media-fluid');
+    var videoID     = video.id.videoId;
+    var thumb       = video.snippet.thumbnails.medium.url;
+    var title       = video.snippet.title;
+    var description = video.snippet.description;
+        description = description.substring(0, 130);
+    var published   = video.snippet.publishedAt;
+        published   = moment(published).format('MMMM Do YYYY');
 
-    col.append( item.append(image) );
+    var col   = $('<div class="col-video col-sm-4">');
+    var item  = $('<div class="video-item" data-video-id="">');
+        item.attr('data-video-id', videoID );
+
+    var imgWrap     = $('<div class="video-item-img">');
+    var image       = $('<img>');
+        image.attr('src', thumb ).addClass('media-fluid');
+        imgWrap.append( image );
+
+    var videoMeta = $('<div class="video-item-meta">');
+        videoMeta.html('<small>Published on: '+ published +'</small><br><p class="video-item-title"><strong>'+ title +'</strong></p><p class="video-item-desc">'+ description +'</p>');
+
+    item.append( imgWrap );
+    item.append( videoMeta );
+
+    col.append( item );
 
     // append columns to the #youtube
     $('#videos-row').append( col );
   });
 }
-
 
 $(document).ready(function() {
 
@@ -64,8 +76,6 @@ $(document).ready(function() {
   $('#searchButton').click(function(e) {
     e.preventDefault();
     var val = $('#search').val();
-
-    console.log('Youtube' + val);
 
     // Run the search
     search(val);
@@ -89,4 +99,3 @@ $(document).ready(function() {
   });
 
 });
-
