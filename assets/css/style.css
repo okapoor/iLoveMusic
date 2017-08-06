@@ -1,6 +1,12 @@
 body {
   position: relative;
 }
+.site-header.affix {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
 .navbar {
   border-radius: 0;
   margin-bottom: 0;
@@ -10,16 +16,7 @@ body {
 }
 .navbar-default {
   border-bottom-color: #D2D6DF;
-  background-color: #fff;
-}
-.navbar-subnav .navbar-nav {
-  margin: 0 -15px;
-}
-.navbar-subnav .navbar-nav > li {
-  float: left;
-}
-.navbar-subnav .navbar-nav > li a {
-  text-transform: uppercase;
+  background-color: rgba( 255, 255, 255, .90 );
 }
 .media-fluid {
 	width: 100%;
@@ -114,12 +111,17 @@ body {
 /*------------------------------------*\
   #Artist Navigation
 \*------------------------------------*/
-.navbar-subnav.affix {
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
+
+.navbar-subnav .navbar-nav {
+  margin: 0 -15px;
 }
+.navbar-subnav .navbar-nav > li {
+  float: left;
+}
+.navbar-subnav .navbar-nav > li a {
+  text-transform: uppercase;
+}
+
 /*------------------------------------*\
 	#Video
 \*------------------------------------*/

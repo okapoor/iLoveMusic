@@ -39,40 +39,32 @@
 </head>
 <body data-spy="scroll" data-target="#artist-navigation">
 
-  <nav class="navbar navbar-default">
-    <div class="container">
+  <header id="site-header" class="site-header" data-spy="affix" data-offset-top="104">
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">iLoveMusic</a>
+        </div>
 
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navigation" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">iLoveMusic</a>
-      </div>
-
-      <div class="collapse navbar-collapse" id="main-navigation">
         <form class="navbar-form navbar-right">
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Search" id="search" val="">
           </div>
           <button type="submit" class="btn btn-default" id="searchButton">Submit</button>
         </form>
-      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav><!-- /.navbar -->
 
-    </div><!-- /.container-fluid -->
-  </nav><!-- /.navbar -->
-
-  <nav id="artist-navigation" data-spy="affix" class="navbar navbar-inverse navbar-subnav" data-offset-top="52">
-    <div class="container">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#bandsintown" class="smooth-scroll">About</a></li>
-        <li><a href="#youtube" class="smooth-scroll">Videos</a></li>
-        <li><a href="#social" class="smooth-scroll">Social</a></li>
-      </ul><!-- /.navbar-nav -->
-    </div><!-- /.container -->
-  </nav><!-- /.navbar-subnav -->
+    <nav id="artist-navigation" class="navbar navbar-inverse navbar-subnav">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#bandsintown" class="smooth-scroll">About</a></li>
+          <li><a href="#youtube" class="smooth-scroll">Videos</a></li>
+          <li><a href="#social" class="smooth-scroll">Social</a></li>
+        </ul><!-- /.navbar-nav -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar-subnav -->
+  </header><!-- /#site-header -->
 
   <div id="feature-carousel" class="site-feature carousel slide" data-ride="carousel">
     <div class="carousel-inner" role="listbox">
