@@ -44,7 +44,7 @@ function onSearchResponse(response) {
     var thumb       = video.snippet.thumbnails.medium.url;
     var title       = video.snippet.title;
     var description = video.snippet.description;
-        description = description.substring(0, 130);
+        description = description.substring(0, 130) + '...';
     var published   = video.snippet.publishedAt;
         published   = moment(published).format('MMMM Do YYYY');
 

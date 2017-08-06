@@ -161,7 +161,7 @@ body {
   border-bottom-style: solid;
   border-bottom-width: 5px;
 }
-.video-item-img:hover {
+.video-item:hover .video-item-img {
   border-color: #ededed;
 }
 .video-item-img:after {
@@ -188,21 +188,19 @@ body {
   -webkit-transform: scale( 1.2 );
   transform: scale( 1.2 );
 }
-.video-item-title {
-  color: #cc181e;
-  height: 40px;
-  overflow: hidden;
-}
-.video-item-desc {
-  height: 60px;
-  margin-bottom: 0;
-  overflow: hidden;
-}
 .video-item-meta {
+  height: 150px;
+  overflow: hidden;
   padding: 10px 15px;
 }
 .video-item-meta small {
   color: #666A73;
+}
+.video-item-title {
+  color: #cc181e;
+}
+.video-item-desc {
+  margin-bottom: 0;
 }
 .media-fluid {
   width: 100%;
