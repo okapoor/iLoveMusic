@@ -44,7 +44,7 @@ function onSearchResponse(response) {
     var thumb       = video.snippet.thumbnails.medium.url;
     var title       = video.snippet.title;
     var description = video.snippet.description;
-        description = description.substring(0, 140);
+        description = description.substring(0, 130);
     var published   = video.snippet.publishedAt;
         published   = moment(published).format('MMMM Do YYYY');
 
@@ -58,7 +58,7 @@ function onSearchResponse(response) {
         imgWrap.append( image );
 
     var videoMeta = $('<div class="video-item-meta">');
-        videoMeta.html('<p class="video-item-title"><small>Published on: '+ published +'</small><br><strong>'+ title +'</strong></p><p class="video-item-desc">'+ description +'</p>');
+        videoMeta.html('<small>Published on: '+ published +'</small><br><p class="video-item-title"><strong>'+ title +'</strong></p><p class="video-item-desc">'+ description +'</p>');
 
     item.append( imgWrap );
     item.append( videoMeta );
