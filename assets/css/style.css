@@ -28,6 +28,12 @@ body {
 	padding-bottom: 10px;
 	background: #ededed;
 }
+
+
+
+/*------_Social Style Section  --------*/
+
+/*Styling for FB Cards*/
 .fbCard {
 	border: 1px solid black;
 	box-shadow:1px 3px 8px #3b5998;
@@ -41,6 +47,8 @@ body {
 	-moz-animation: fbInimation 15s ease infinite;
 	animation: fbInimation 15s ease infinite;
 }
+
+/*Styling for instagram cards*/
 
 .instaCard {
 	border: 1px solid black;
@@ -91,6 +99,7 @@ animation: facebook 25s ease infinite;
 
 }
 
+/*Animation for various segments */
 @-webkit-keyframes fbInimation {
     0%{background-position:86% 0%}
     50%{background-position:15% 100%}
