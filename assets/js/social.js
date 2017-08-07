@@ -34,8 +34,6 @@ function populateSocial () {
 	//Condition where the artist name has a space
 	var artistWithSpace = $("#search").val();
 	// var artistWithSpace = "drake"
-	console.log(artistWithSpace);
-
 	var artist = artistWithSpace.split(" ").join("+");
 	var fbIDURL = fbGetIDURL+artist+fbGetIDToken;
 	var instaAjaxURL = instaURL + artist + "/media?callback=?";
@@ -43,6 +41,7 @@ function populateSocial () {
 
 	//Instagram API start
 	$.getJSON(instaAjaxURL, function(result){
+		console.log(result)
 		console.log("Instagram call successful")
 		//Empty out previous results
 		$('#insta-row').empty()
@@ -54,11 +53,15 @@ function populateSocial () {
 		//Start a loop that will append insta cards to our div
 		for (var i = 0;i<cardsToShow;i++) {
 			var dataset = instaData[i];
-
+			console.log(dataset)
 			//Setting up variables for the card
 			var imgURL = dataset.images.standard_resolution.url;
 			var createdTime = dataset.created_time;
-			var message = dataset.caption.text;
+
+			if (dataset.caption.text) {
+				var message = dataset.caption.text;
+			}
+			
 			var likes = dataset.likes.count;
 			var link = dataset.link;
 
@@ -113,7 +116,7 @@ function populateSocial () {
 
 			//append card to column
 			instaColumn.append(instaCard)
-			console.log("We are appending")
+			console.log("This is running -- instagram")
 	        // Masonry layout
 	        instaGrid.append( instaColumn ).masonry( 'appended', instaColumn );
 	        instaGrid.imagesLoaded( function() {
@@ -139,8 +142,6 @@ function populateSocial () {
 			url: fbAjaxURL,
 			type: 'GET',
 		}).done(function(result) {
-			console.log(result);
-
 			//Empty out previous results
 			$('#fb-row').empty()
 			$('#fb-row').append('<div class="grid-sizer">');
@@ -199,7 +200,6 @@ function populateSocial () {
 
 				//append stuff to the doc
 				fbColumn.append(fbCard)
-				console.log("We are appending")
 		        // Masonry layout
 		        facebookGrid.append( fbColumn ).masonry( 'appended', fbColumn );
 		        facebookGrid.imagesLoaded( function() {
@@ -217,5 +217,21 @@ function populateSocial () {
 }
 
 $(document).ready(function() {
+	$('#insta-row').empty()
+	$('#insta-row').append('<div class="grid-sizer">');
+	$('#fb-row').empty()
+	$('#fb-row').append('<div class="grid-sizer">');
+
+	// var sorryMessage = $("<h3>")
+	// sorryMessage.text("Sorry, we are unable to find data for this artist")
+	// $('#fb-row').append('<div class="grid-sizer">');
+	// $('#fb-row').append(sorryMessage)
+	// $('#insta-row').append(sorryMessage)
+
 	$("#searchButton").on("click", populateSocial)
+
+	// 	$('#insta-row').empty()
+	// $('#insta-row').html("<h3> Sorry, we are unable to find data for this artist </h4>");
+	// $('#fb-row').empty()
+	// $('#fb-row').html("<h3> Sorry, we are unable to find data for this artist </h4>");
 })
