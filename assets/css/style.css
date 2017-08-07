@@ -47,14 +47,48 @@ body {
 	box-shadow:1px 3px 8px #3b5998;
 	border-radius: 5px;
 	padding: 5px;
-	margin: 5px;
-/*	background-color: #dfe3ee;*/
-	background: linear-gradient(270deg, #fb3958, #ffc838, #6dc993, #458eff);
-	background-size: 800% 800%;
+  margin: 5px;
+  background-color: rgba(255,255,255,0.5);
 
-	-webkit-animation: AnimationName 30s ease infinite;
-	-moz-animation: AnimationName 30s ease infinite;
-	animation: AnimationName 30s ease infinite;
+}
+
+.grid-sizer {
+  width: 33.33%;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  /*display: inline-block;*/
+}
+
+#facebook {
+  padding-top: 60px;
+  padding-bottom: 60px;
+background: linear-gradient(239deg, #3e69a2, #00778f);
+background-size: 400% 400%;
+
+-webkit-animation: facebook 7s ease infinite;
+-moz-animation: facebook 7s ease infinite;
+animation: facebook 7s ease infinite;
+}
+
+#instagram {
+background: linear-gradient(344deg, #fb3958,  #458eff);
+background-size: 600% 600%;
+
+-webkit-animation: facebook 25s ease infinite;
+-moz-animation: facebook 25s ease infinite;
+animation: facebook 25s ease infinite;
+}
+
+.fbMessage {
+  border-top: 1px solid teal;
+  font-family: 'Lato', sans-serif;
+  padding: 3px;
+  margin-top: 3px;
+  /*display: inline-block;*/
+
 }
 
 @-webkit-keyframes fbInimation {
@@ -89,24 +123,25 @@ body {
     100%{background-position:0% 50%}
 }
 
-.fbMessage {
-	border-top: 1px solid teal;
-	font-family: 'Lato', sans-serif;
-	padding: 3px;
-	margin-top: 3px;
-	/*display: inline-block;*/
-
+@-webkit-keyframes facebook {
+    0%{background-position:0% 10%}
+    50%{background-position:100% 91%}
+    100%{background-position:0% 10%}
+}
+@-moz-keyframes facebook {
+    0%{background-position:0% 10%}
+    50%{background-position:100% 91%}
+    100%{background-position:0% 10%}
+}
+@keyframes facebook { 
+    0%{background-position:0% 10%}
+    50%{background-position:100% 91%}
+    100%{background-position:0% 10%}
 }
 
-.grid-sizer {
-	width: 33.33%;
-}
 
-.icon {
-	width: 20px;
-	height: 20px;
-	/*display: inline-block;*/
-}
+
+
 
 /*------------------------------------*\
   #Artist Navigation
