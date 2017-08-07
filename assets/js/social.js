@@ -35,8 +35,9 @@ function populateSocial () {
 	var artistWithSpace = $("#search").val();
 	// var artistWithSpace = "drake"
 	var artist = artistWithSpace.split(" ").join("+");
+	var artistInsta = artistWithSpace.split(" ").join("");
 	var fbIDURL = fbGetIDURL+artist+fbGetIDToken;
-	var instaAjaxURL = instaURL + artist + "/media?callback=?";
+	var instaAjaxURL = instaURL + artistInsta + "/media?callback=?";
 	
 
 	//Instagram API start
