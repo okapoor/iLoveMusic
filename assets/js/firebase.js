@@ -59,7 +59,7 @@ database.ref("searches").limitToLast(10).on("value", function(snapshot) {
       var recentSearchButton = $("<button>");
       recentSearchButton.attr("data-value", uniqueSearch[i]);
       recentSearchButton.text(uniqueSearch[i]);
-      recentSearchButton.addClass("btn btn-info recentSearchButton")
+      recentSearchButton.addClass("btn recentSearchButton")
       $("#recentSearchButtons").append(recentSearchButton)
     }
   })
