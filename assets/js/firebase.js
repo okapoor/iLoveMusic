@@ -36,3 +36,30 @@ $(document).ready(function() {
   });
 
 });
+
+
+database.ref("searches").limitToLast(10).on("value", function(snapshot) {
+
+  console.log("logging snapshot")
+  console.log(snapshot.val());
+  var searchArray = [];
+    snapshot.forEach(function(data){
+      searchArray.push(data.val().search_value);
+    })
+    console.log("===== search array ======")
+    console.log(searchArray)
+
+    var uniqueSearch = searchArray.filter((v, i, a) => a.indexOf(v) === i); 
+
+    console.log("===== unique search array =====") 
+    console.log(uniqueSearch)
+    $("#recentSearchButtons").empty();
+    for (var i = 0 ; i < 5; i++){
+      console.log(uniqueSearch[i])
+      var recentSearchButton = $("<button>");
+      recentSearchButton.attr("data-value", uniqueSearch[i]);
+      recentSearchButton.text(uniqueSearch[i]);
+      recentSearchButton.addClass("btn btn-info recentSearchButton")
+      $("#recentSearchButtons").append(recentSearchButton)
+    }
+  })
