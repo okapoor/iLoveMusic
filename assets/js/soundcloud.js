@@ -31,7 +31,7 @@ $(document).ready(function() {
         } ).then( function( oEmbed ) {
           console.log('oEmbed response: ', oEmbed);
 
-          var col = $('<div class="col-sm-12">');
+          var col = $('<div class="col-sm-6">');
               col.html( oEmbed.html.replace( 'visual=true&','visual=false&') );
 
           $('#soundcloud-row').append( col );
