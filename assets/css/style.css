@@ -11,8 +11,7 @@ body {
   border-radius: 0;
   margin-bottom: 0;
   min-height: auto;
-  border-left-color: transparent;
-  border-right-color: transparent;
+  border: none;
 }
 .navbar-default {
   border-bottom-color: #D2D6DF;
@@ -163,7 +162,16 @@ animation: facebook 25s ease infinite;
   float: left;
 }
 .navbar-subnav .navbar-nav > li a {
+  color: #fff;
   text-transform: uppercase;
+  padding: 20px;
+}
+.navbar-subnav .navbar-nav > li > a:hover {
+  color: #9d9d9d;
+  background-color: transparent;
+}
+.navbar-subnav .navbar-nav > li.active a {
+  color: #9d9d9d;
 }
 
 /*------------------------------------*\
