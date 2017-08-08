@@ -28,10 +28,6 @@ body {
 	background: #ededed;
 }
 
-.recentSearchButton{
-  margin: 5px 5px 5px 5px;
-}
-
 /*------_Social Style Section  --------*/
 
 /*Styling for FB Cards*/
@@ -98,6 +94,11 @@ animation: facebook 25s ease infinite;
   margin-top: 3px;
   /*display: inline-block;*/
 
+}
+
+.recentSearchButton{
+  margin: 5px 5px 5px 5px;
+  background-color: #d3bcff;
 }
 
 /*Animation for various segments */

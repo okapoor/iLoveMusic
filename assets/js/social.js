@@ -26,13 +26,13 @@ var instaGrid = $('#insta-row').imagesLoaded( function() {
 });
 
 
-function populateSocial () {
+function populateSocial (artistSearch) {
 	console.log("Entered function")
 
 	event.preventDefault()
 
 	//Condition where the artist name has a space
-	var artistWithSpace = $("#search").val();
+	var artistWithSpace = artistSearch;
 	// var artistWithSpace = "drake"
 	var artist = artistWithSpace.split(" ").join("+");
 	var artistInsta = artistWithSpace.split(" ").join("");
@@ -218,10 +218,7 @@ function populateSocial () {
 }
 
 $(document).ready(function() {
-	$('#insta-row').empty()
-	$('#insta-row').append('<div class="grid-sizer">');
-	$('#fb-row').empty()
-	$('#fb-row').append('<div class="grid-sizer">');
+
 
 	// var sorryMessage = $("<h3>")
 	// sorryMessage.text("Sorry, we are unable to find data for this artist")
@@ -229,7 +226,25 @@ $(document).ready(function() {
 	// $('#fb-row').append(sorryMessage)
 	// $('#insta-row').append(sorryMessage)
 
-	$("#searchButton").on("click", populateSocial)
+	$("#searchButton").on("click", function(){
+		$('#insta-row').empty()
+		$('#insta-row').append('<div class="grid-sizer">');
+		$('#fb-row').empty()
+		$('#fb-row').append('<div class="grid-sizer">');
+		populateSocial($("#search").val());
+	})
+
+	$(document).on("click",".recentSearchButton", function() {
+		$('#insta-row').empty()
+		$('#insta-row').append('<div class="grid-sizer">');
+		$('#fb-row').empty()
+		$('#fb-row').append('<div class="grid-sizer">');
+		populateSocial($(this).attr("data-value"));
+		console.log($(this).attr("data-value"))
+	})
+
+$(document).on("click", ".giph", changeState)
+	
 
 	// 	$('#insta-row').empty()
 	// $('#insta-row').html("<h3> Sorry, we are unable to find data for this artist </h4>");
