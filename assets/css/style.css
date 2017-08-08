@@ -322,7 +322,7 @@ animation: facebook 25s ease infinite;
 .featured-items {
   padding-top: 60px;
   padding-bottom: 60px;
-  background-color: #F8F8FA;
+  background: #F8F8FA url('../img/symphony.jpg') repeat left top;
 }
 .featured-item {
   background-color: #fff;
