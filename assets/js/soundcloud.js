@@ -31,7 +31,10 @@ $(document).ready(function() {
         } ).then( function( oEmbed ) {
           console.log('oEmbed response: ', oEmbed);
 
-          $('#soundcloud-row').append( oEmbed.html.replace( 'visual=true&','visual=false&') );
+          var col = $('<div class="col-sm-12">');
+              col.html( oEmbed.html.replace( 'visual=true&','visual=false&') );
+
+          $('#soundcloud-row').append( col );
         });
 
       });
