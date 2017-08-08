@@ -144,7 +144,7 @@ animation: facebook 25s ease infinite;
     50%{background-position:100% 91%}
     100%{background-position:0% 10%}
 }
-@keyframes facebook { 
+@keyframes facebook {
     0%{background-position:0% 10%}
     50%{background-position:100% 91%}
     100%{background-position:0% 10%}
@@ -307,4 +307,13 @@ animation: facebook 25s ease infinite;
   font-weight: 300;
   text-shadow: none;
   opacity: 1;
+}
+
+/*------------------------------------*\
+  #SoundCloud
+\*------------------------------------*/
+
+#soundcloud {
+  padding-top: 60px;
+  padding-bottom: 60px;
 }

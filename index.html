@@ -17,6 +17,8 @@
   <link rel="stylesheet" href="./assets/css/bandsintown.css">
   <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
   <script src="assets/js/firebase.js" type="text/javascript"></script>
+  <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
+  <script src="assets/js/soundcloud.js"></script>
   <script>
     $(document).ready(function() {
 
@@ -181,9 +183,14 @@
     </div><!-- /.container -->
   </div><!-- /#youtube -->
 
-  <div class="row" id="soundcloud">
-
-  </div>
+  <div id="soundcloud">
+    <div class="container">
+      <div class="page-header">
+        <h1 class="text-uppercase text-center">SoundCloud</h1>
+      </div><!-- /.page-header -->
+      <div id="soundcloud-row" class="row"></div><!-- /#soundcloud-row -->
+    </div><!-- /.container -->
+  </div><!-- /#soundcloud -->
 
 <!-- Start of Social data -->
   <div class="row" id="social">
