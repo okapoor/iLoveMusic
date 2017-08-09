@@ -73,7 +73,7 @@ $(document).ready(function() {
             event.append("<td class='td'>" + response[i].venue.city + ", " + response[i].venue.country +"</td>" );
             event.append('<td><a href="'+response[i].offers[0].url+'"target="_blank"><button class="btn btn-sm center-block ticketBtn">Tickets and more</button></a></td>');
             $(".event").append(event);
-          } 
+          }
         }else {
           $(".eventHeader").append(event);
           for (let i = 0; i < 10; i++) {
