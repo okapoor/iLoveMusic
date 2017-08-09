@@ -24,7 +24,7 @@ $(document).ready(function() {
   function searchBandsInTown(artistInput) {
     let queryArtist= 'https://rest.bandsintown.com/artists/' + artistInput + '?app_id=codingbootcamp';
     let queryEvent = 'https://rest.bandsintown.com/artists/' + artistInput + '/events?app_id=codingbootcamp';
-    
+
     // run bandsintown API to get the info
     $.ajax({
       url: queryArtist,
@@ -32,16 +32,16 @@ $(document).ready(function() {
       error:function(xhr, textStatus, errorThrown){},
       success:function(response) {
         let artist=$("<center>").append($("<h1>").html(response.name));
-        artist.append('<a href="#!" data-toggle="tooltip" data-placement="right" title="Click Here to Enlarge the Picture"><img class="img-responsive image" data-toggle="modal" data-target="#imageModal" src=' + response.thumb_url + '></img></a>');
+        artist.append('<a href="#!" data-toggle="tooltip" data-placement="bottom" title="Click Here to Enlarge the Picture"><img class="img-responsive image" data-toggle="modal" data-target="#imageModal" src=' + response.thumb_url + '></img></a>');
         artist.append('<br>')
-        artist.append('<a href="#!" id="more" data-toggle="tooltip" data-placement="right" title="Click Here to Read More">Read more about the artist</a>');
+        artist.append('<a href="#!" id="more" data-toggle="tooltip" data-placement="bottom" title="Click Here to Read More">Read more about the artist</a>');
         $(".list").append(artist);
         artistName = response.name;
         artistThumbURL = response.thumb_url;
         ArtistURL = response.image_url;
       }
     });
-    
+
     // run bandsintown API to get the events
     $.ajax({
       url: queryEvent,
@@ -72,7 +72,7 @@ $(document).ready(function() {
         }
       }
     });
-    
+
     // run WIKIPEDIA API to get more info about the artist
     let wikiURL = "https://en.wikipedia.org/w/api.php";
     wikiURL += '?' + $.param({
@@ -115,7 +115,7 @@ $(document).ready(function() {
 
   // when the image clicked, show the modal
   $(document).on("click", ".image", function() {
-    $('.modalImage').attr('src', ArtistURL); 
+    $('.modalImage').attr('src', ArtistURL);
   });
 
   // when carousel clicked, go to that artist
