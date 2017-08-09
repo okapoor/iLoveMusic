@@ -71,7 +71,7 @@ $(document).ready(function() {
             event.append("<td class='td'>" + moment(response[i].datetime).format('MM/DD/YY') + "</td>" );
             event.append("<td class='td'>" + response[i].venue.name + "</td>");
             event.append("<td class='td'>" + response[i].venue.city + ", " + response[i].venue.country +"</td>" );
-            event.append('<a href="'+response[i].offers[0].url+'"target="_blank"><button class="btn btn-sm center-block ticketBtn">Tickets and more</button></a></td>');
+            event.append('<td><a href="'+response[i].offers[0].url+'"target="_blank"><button class="btn btn-sm center-block ticketBtn">Tickets and more</button></a></td>');
             // event.append('<td class="td"><a href="' + response[i].offers[0].url + '">BUY!</a></td>');
             $(".event").append(event);
           }
