@@ -144,7 +144,7 @@ animation: facebook 25s ease infinite;
     50%{background-position:100% 91%}
     100%{background-position:0% 10%}
 }
-@keyframes facebook { 
+@keyframes facebook {
     0%{background-position:0% 10%}
     50%{background-position:100% 91%}
     100%{background-position:0% 10%}
@@ -194,7 +194,8 @@ animation: facebook 25s ease infinite;
   margin: 10px 0 20px;
   border-bottom: solid 5px #cc181e;
 }
-.col-video {
+.col-video,
+.col-featured-item {
   margin-bottom: 30px;
 }
 .video-item {
@@ -208,7 +209,8 @@ animation: facebook 25s ease infinite;
 .video-item:hover {
   border-color: #cc181e;
 }
-.video-item-img {
+.video-item-img,
+.featured-item-img {
   position: relative;
   overflow: hidden;
   -moz-transition: all 0.3s;
@@ -218,7 +220,8 @@ animation: facebook 25s ease infinite;
   border-bottom-style: solid;
   border-bottom-width: 5px;
 }
-.video-item:hover .video-item-img {
+.video-item:hover .video-item-img,
+.featured-item:hover .featured-item-img {
   cursor: pointer;
   border-color: #ededed;
 }
@@ -235,18 +238,20 @@ animation: facebook 25s ease infinite;
   -webkit-background-size: cover;
   background-size: cover;
 }
-.video-item-img img {
+.video-item-img img,
+.featured-item-img img {
   border-radius: 0;
   -moz-transition: all 0.3s;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
-.video-item:hover .video-item-img img {
+.video-item:hover .video-item-img img,
+.featured-item:hover .featured-item-img img {
   -moz-transform: scale( 1.2 );
   -webkit-transform: scale( 1.2 );
   transform: scale( 1.2 );
 }
-.video-item-meta {
+.video-item-meta  {
   height: 160px;
   overflow: hidden;
   padding: 10px 15px;
@@ -266,7 +271,8 @@ animation: facebook 25s ease infinite;
   color: #cc181e;
   margin-bottom: 5px;
 }
-.video-item-desc {
+.video-item-desc,
+.featured-item-desc {
   margin-bottom: 0;
 }
 .media-fluid {
@@ -307,4 +313,54 @@ animation: facebook 25s ease infinite;
   font-weight: 300;
   text-shadow: none;
   opacity: 1;
+}
+
+/*------------------------------------*\
+  #Featured Items
+\*------------------------------------*/
+
+.featured-items {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background: #F8F8FA url('../img/symphony.jpg') repeat left top;
+}
+.featured-item {
+  background-color: #fff;
+  border: solid 1px #DFDFE1;
+  box-shadow: 0 1px 0 0 rgba(0,0,0,.1);
+}
+.featured-item-meta {
+  padding: 15px;
+}
+.featured-item-title {
+  color: #25075E;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  border-bottom: solid 1px #ededed;
+}
+.featured-item-img {
+  border-color: #25075E;
+}
+.list-searches li {
+  margin-bottom: 5px;
+}
+
+/*------------------------------------*\
+  #Carousel
+\*------------------------------------*/
+
+.carousel-caption {
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background: #25075E;
+  background: -webkit-linear-gradient(left, rgba(37, 7, 94,0) 0%, rgba(37, 7, 94,0.75) 25%, rgba(37, 7, 94,0.75) 75%,rgba(37, 7, 94,0) 100%);
+  background: linear-gradient(to right, rgba(37, 7, 94,0) 0%, rgba(37, 7, 94,0.75) 25%, rgba(37, 7, 94,0.75) 75%,rgba(37, 7, 94,0) 100%)
+}
+.carousel-caption h1 {
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 0;
 }
