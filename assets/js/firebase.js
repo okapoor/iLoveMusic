@@ -38,7 +38,7 @@ $(document).ready(function() {
 });
 
 
-database.ref("searches").limitToLast(10).on("value", function(snapshot) {
+database.ref("searches").on("value", function(snapshot) {
 
   console.log("logging snapshot")
   console.log(snapshot.val());
@@ -53,13 +53,29 @@ database.ref("searches").limitToLast(10).on("value", function(snapshot) {
 
     console.log("===== unique search array =====") 
     console.log(uniqueSearch)
-    $("#recentSearchButtons").empty();
-    for (var i = 0 ; i < 5; i++){
-      console.log(uniqueSearch[i])
-      var recentSearchButton = $("<button>");
-      recentSearchButton.attr("data-value", uniqueSearch[i]);
-      recentSearchButton.text(uniqueSearch[i]);
-      recentSearchButton.addClass("btn recentSearchButton")
-      $("#recentSearchButtons").append(recentSearchButton)
+    $(".list-searches").empty();
+
+    if (uniqueSearch.length < 6) {
+      for (var i = 0 ; i < uniqueSearch.length; i++){
+        console.log(uniqueSearch[i])
+        var recentSearchButton = $("<button>");
+        recentSearchButton.attr("data-value", uniqueSearch[i]);
+        recentSearchButton.text(uniqueSearch[i]);
+        recentSearchButton.addClass("btn recentSearchButton btn-default")
+        $(".list-searches").append(recentSearchButton)
+      }
+    } else {
+      for (var i = 0 ; i < 6; i++){
+        console.log(uniqueSearch[i])
+        var recentSearchButton = $("<button>");
+        recentSearchButton.attr("artistName", uniqueSearch[i]);
+        recentSearchButton.text(uniqueSearch[i]);
+        recentSearchButton.addClass("btn recentSearchButton btn-default")
+
+        var searchItem = $("<li>")
+
+        searchItem.append(recentSearchButton);
+        $(".list-searches").append(searchItem)
+      }
     }
   })

@@ -97,8 +97,9 @@ animation: facebook 25s ease infinite;
 }
 
 .recentSearchButton{
-  margin: 5px 5px 5px 5px;
-  background-color: #d3bcff;
+  margin: 2px 2px 2px 2px;
+  color: white;
+  background-color: #64009e;
 }
 
 /*Animation for various segments */
