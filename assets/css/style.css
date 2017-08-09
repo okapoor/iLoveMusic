@@ -151,6 +151,23 @@ animation: facebook 25s ease infinite;
   background-color: #64009e;
 }
 
+
+#spotify {
+  padding-top: 60px;
+  padding-bottom: 60px;
+background: linear-gradient(270deg, #033528 , #061c46 );
+background-size: 400% 400%;
+
+-webkit-animation: facebook 17s ease infinite;
+-moz-animation: facebook 17s ease infinite;
+animation: facebook 17s ease infinite;
+}
+
+iframe {
+  border-radius: 5px;
+}
+
+
 /*Animation for various segments */
 @-webkit-keyframes fbInimation {
     0%{background-position:86% 0%}
