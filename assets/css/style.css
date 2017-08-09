@@ -1,11 +1,15 @@
 body {
   position: relative;
 }
+.site-header {
+  background: #000;
+}
 .site-header.affix {
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
+  background-color: rgba( 0, 0, 0, .90 );
 }
 .navbar {
   border-radius: 0;
@@ -15,17 +19,62 @@ body {
 }
 .navbar-default {
   border-bottom-color: #D2D6DF;
-  background-color: rgba( 255, 255, 255, .90 );
+  /*background-color: rgba( 255, 255, 255, .90 );*/
+  background: none;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #3a3a3a;
+}
+.navbar-brand {
+  height: auto;
 }
 .media-fluid {
 	width: 100%;
 	height: auto;
 	display: block;
 }
-.site-search {
-	padding-top: 10px;
-	padding-bottom: 10px;
-	background: #ededed;
+
+@media ( min-width: 768px ) {
+  .site-search {
+    margin-top: 50px;
+  }
+}
+
+@media ( min-width: 1200px ) {
+  .site-search {
+    margin-left: 50px;
+  }
+}
+
+.site-search input[type="text"],
+.site-search button[type="submit"] {
+  float: left;
+}
+.site-search input[type="text"] {
+  width: 100%;
+  padding-right: 30%;
+  background: #3a3a3a;
+  border-color: #333131;
+}
+.site-search input[type="text"]:focus {
+  color: #fff;
+}
+.site-search button[type="submit"] {
+  color: #fff;
+  font-weight: bold;
+  width: 30%;
+  margin-left: -30%;
+  text-transform: uppercase;
+  border-color: #333131;
+  background-color: #64009e;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.site-search button[type="submit"]:hover,
+.site-search button[type="submit"]:focus {
+  border-color: #25075E;
+  background-color: #530084;
 }
 
 /*------_Social Style Section  --------*/
