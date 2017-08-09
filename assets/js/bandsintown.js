@@ -6,11 +6,11 @@ var more=false;
 
 $(document).ready(function() {
 // when document ready, hide most of the div and show some div
-  $("#bandsintown, #youtube, #social, #instagram, #article, #recentSearch").hide();
+  $("#bandsintown, #youtube, #social, #instagram, #article, #recentSearch, #artist-navigation").hide();
 
 // when the search button executed, run searchBandsInTown function, show most of the div and hide some div
   $("#searchButton").on("click", function(event) {
-    $("#bandsintown, #youtube, #social, #instagram, #recentSearch").show();
+    $("#bandsintown, #youtube, #social, #instagram, #recentSearch, #artist-navigation").show();
     event.preventDefault();
     var artistInput = $("#search").val().trim();
     $("#article, #feature-carousel").hide();
@@ -18,6 +18,9 @@ $(document).ready(function() {
     $(".list").empty();
     $("#search").val("");
     searchBandsInTown(artistInput);
+
+    window.scrollTo(0, 0);
+
   });
 
 // function searchBandsInTown start for search the artist including all the information
@@ -49,6 +52,7 @@ $(document).ready(function() {
       error:function(xhr, textStatus, errorThrown){
         $(".noArtist").show();
         $(".noArtist").html("<center><h3>No Artist with that name</h3></center>");
+        $("#youtube, #social, #instagram, #article, #recentSearch, #artist-navigation").hide();
         $(".event").hide();
         $(".list").hide();
         $(".eventTable").hide();
@@ -131,6 +135,7 @@ $(document).ready(function() {
     var artist = ($(this).attr("artistName"));
     $("#search").val(artist);
     $("#searchButton").click();
+    window.scrollTo(0, 0);
   });
 
 });
