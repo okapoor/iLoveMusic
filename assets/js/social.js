@@ -211,7 +211,6 @@ function populateSocial (artistSearch) {
 		})
 	})
 
-	//insta ajax call
 
 
 
@@ -220,11 +219,6 @@ function populateSocial (artistSearch) {
 $(document).ready(function() {
 
 
-	// var sorryMessage = $("<h3>")
-	// sorryMessage.text("Sorry, we are unable to find data for this artist")
-	// $('#fb-row').append('<div class="grid-sizer">');
-	// $('#fb-row').append(sorryMessage)
-	// $('#insta-row').append(sorryMessage)
 
 	$("#searchButton").on("click", function(){
 		$('#insta-row').empty()
@@ -234,20 +228,6 @@ $(document).ready(function() {
 		populateSocial($("#search").val());
 	})
 
-	$(document).on("click",".recentSearchButton", function() {
-		$('#insta-row').empty()
-		$('#insta-row').append('<div class="grid-sizer">');
-		$('#fb-row').empty()
-		$('#fb-row').append('<div class="grid-sizer">');
-		populateSocial($(this).attr("data-value"));
-		console.log($(this).attr("data-value"))
-	})
-
-$(document).on("click", ".giph", changeState)
 	
 
-	// 	$('#insta-row').empty()
-	// $('#insta-row').html("<h3> Sorry, we are unable to find data for this artist </h4>");
-	// $('#fb-row').empty()
-	// $('#fb-row').html("<h3> Sorry, we are unable to find data for this artist </h4>");
 })
