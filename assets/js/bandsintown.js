@@ -6,11 +6,11 @@ var more=false;
 
 $(document).ready(function() {
 // when document ready, hide most of the div and show some div
-  $("#bandsintown, #youtube, #social, #instagram, #article").hide();
+  $("#bandsintown, #youtube, #social, #instagram, #article, #recentSearch").hide();
 
 // when the search button executed, run searchBandsInTown function, show most of the div and hide some div
   $("#searchButton").on("click", function(event) {
-    $("#bandsintown, #youtube, #social, #instagram").show();
+    $("#bandsintown, #youtube, #social, #instagram, #recentSearch").show();
     event.preventDefault();
     var artistInput = $("#search").val().trim();
     $("#article, #feature-carousel").hide();
@@ -64,9 +64,11 @@ $(document).ready(function() {
           $(".eventHeader").append(event);
           for (let i = 0; i < 10; i++) {
             let event=$("<tr>");
-            event.append("<td class='td'>" + moment(response[i].datetime).format('MM/DD/YYYY h:mm a') + "</td>" );
+            event.append("<td class='td'>" + moment(response[i].datetime).format('MM/DD/YY') + "</td>" );
             event.append("<td class='td'>" + response[i].venue.name + "</td>");
             event.append("<td class='td'>" + response[i].venue.city + ", " + response[i].venue.country +"</td>" );
+            event.append('<a href="'+response[i].offers[0].url+'"target="_blank"><button class="btn btn-sm center-block ticketBtn">Tickets and more</button></a></td>');
+            // event.append('<td class="td"><a href="' + response[i].offers[0].url + '">BUY!</a></td>');
             $(".event").append(event);
           }
         }
@@ -120,6 +122,12 @@ $(document).ready(function() {
 
   // when carousel clicked, go to that artist
   $(document).on("click", "#carousel", function() {
+    var artist = ($(this).attr("artistName"));
+    $("#search").val(artist);
+    $("#searchButton").click();
+  });
+
+  $(document).on("click", ".recentSearchButton", function() {
     var artist = ($(this).attr("artistName"));
     $("#search").val(artist);
     $("#searchButton").click();
