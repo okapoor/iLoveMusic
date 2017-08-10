@@ -19,7 +19,6 @@ body {
 }
 .navbar-default {
   border-bottom-color: #D2D6DF;
-  /*background-color: rgba( 255, 255, 255, .90 );*/
   background: none;
 }
 .navbar-default .navbar-collapse,
