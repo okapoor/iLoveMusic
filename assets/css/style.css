@@ -28,6 +28,7 @@ body {
 }
 .navbar-brand {
   height: auto;
+  width: 200px;
 }
 .media-fluid {
 	width: 100%;
@@ -36,6 +37,9 @@ body {
 }
 
 @media ( min-width: 768px ) {
+  .navbar-brand {
+    width: auto;
+  }
   .site-search {
     margin-top: 50px;
   }
