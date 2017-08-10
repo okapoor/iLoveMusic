@@ -154,6 +154,23 @@ animation: facebook 25s ease infinite;
   background-color: #64009e;
 }
 
+#facebook .page-header,
+#instagram .page-header,
+#spotify .page-header,
+#youtube .page-header {
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  margin: 10px 0 20px;
+  border-bottom: solid 5px #fff;
+}
+#facebook .page-header h1,
+#instagram .page-header h1,
+#spotify .page-header h1,
+#youtube .page-header h1 {
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0,0,0,.6);
+}
+
 /*------------------------------------*\
   #Spotify
 \*------------------------------------*/
@@ -164,12 +181,6 @@ animation: facebook 25s ease infinite;
   background: #11a045;
   background: -webkit-linear-gradient(to bottom, #11a045, #22c1c3);
   background: linear-gradient(to bottom, #11a045, #22c1c3);
-}
-#spotify .page-header {
-  color: #fff;
-  font-family: 'Lato', sans-serif;
-  margin: 10px 0 20px;
-  border-bottom: solid 5px #fff;
 }
 iframe {
   border-radius: 5px;
@@ -265,8 +276,6 @@ iframe {
 }
 #youtube .page-header {
   color: #cc181e;
-  font-family: 'Lato', sans-serif;
-  margin: 10px 0 20px;
   border-bottom: solid 5px #cc181e;
 }
 .col-video,
