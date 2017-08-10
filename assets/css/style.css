@@ -151,18 +151,23 @@ animation: facebook 25s ease infinite;
   background-color: #64009e;
 }
 
+/*------------------------------------*\
+  #Spotify
+\*------------------------------------*/
 
 #spotify {
   padding-top: 60px;
   padding-bottom: 60px;
-background: linear-gradient(270deg, #033528 , #061c46 );
-background-size: 400% 400%;
-
--webkit-animation: facebook 17s ease infinite;
--moz-animation: facebook 17s ease infinite;
-animation: facebook 17s ease infinite;
+  background: #11a045;
+  background: -webkit-linear-gradient(to bottom, #11a045, #22c1c3);
+  background: linear-gradient(to bottom, #11a045, #22c1c3);
 }
-
+#spotify .page-header {
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  margin: 10px 0 20px;
+  border-bottom: solid 5px #fff;
+}
 iframe {
   border-radius: 5px;
 }
@@ -255,7 +260,7 @@ iframe {
   -webkit-background-size: cover;
   background-size: cover;
 }
-.page-header {
+#youtube .page-header {
   color: #cc181e;
   font-family: 'Lato', sans-serif;
   margin: 10px 0 20px;
