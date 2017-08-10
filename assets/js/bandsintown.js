@@ -6,11 +6,11 @@ var more=false;
 
 $(document).ready(function() {
 // when document ready, hide most of the div and show some div
-  $("#bandsintown, #youtube, #social, #instagram, #article, #recentSearch, #artist-navigation").hide();
+  $("#bandsintown, #youtube, #social, #instagram, #article, #recentSearch, #artist-navigation, #spotify").hide();
 
 // when the search button executed, run searchBandsInTown function, show most of the div and hide some div
   $("#searchButton").on("click", function(event) {
-    $("#bandsintown, #youtube, #social, #instagram, #recentSearch, #artist-navigation").show();
+    $("#bandsintown, #youtube, #social, #instagram, #recentSearch, #artist-navigation, #spotify").show();
     event.preventDefault();
     var artistInput = $("#search").val().trim();
     $("#article, #feature-carousel").hide();

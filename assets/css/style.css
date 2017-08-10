@@ -152,8 +152,9 @@ animation: facebook 25s ease infinite;
 }
 
 /*------------------------------------*\
-  #Artist Navigation
+  #Spotify
 \*------------------------------------*/
+
 #spotify {
   padding-top: 60px;
   padding-bottom: 60px;
@@ -227,7 +228,7 @@ iframe {
 
 /*------------------------------------*\
   #Artist Navigation
-\*------------------------------------*/1ed760
+\*------------------------------------*/
 
 .navbar-subnav .navbar-nav {
   margin: 0 -15px;
