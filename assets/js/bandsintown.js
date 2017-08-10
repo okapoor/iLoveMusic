@@ -140,7 +140,7 @@ $(document).ready(function() {
     $("#searchButton").click();
   });
 
-  $(document).on("click", ".recentSearchButton", function() {
+  $(document).on("click", ".recentSearchButton, .artist", function() {
     var artist = ($(this).attr("artistName"));
     $("#search").val(artist);
     $("#searchButton").click();
