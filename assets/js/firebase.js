@@ -68,8 +68,8 @@ database.ref("searches").on("value", function(snapshot) {
       for (var i = 0 ; i < 6; i++){
         console.log(uniqueSearch[i])
         var recentSearchButton = $("<button>");
-        recentSearchButton.attr("artistName", uniqueSearch[i]);
-        recentSearchButton.text(uniqueSearch[i]);
+        recentSearchButton.attr("artistName", uniqueSearch[i].substr(0, 1).toUpperCase() + uniqueSearch[i].substr(1).toLowerCase());
+        recentSearchButton.text(uniqueSearch[i].substr(0, 1).toUpperCase() + uniqueSearch[i].substr(1).toLowerCase());
         recentSearchButton.addClass("btn recentSearchButton btn-default")
 
         var searchItem = $("<li>")
