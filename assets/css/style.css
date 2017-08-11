@@ -450,3 +450,31 @@ iframe {
   margin-top: 0;
   margin-bottom: 0;
 }
+
+/*------------------------------------*\
+  #footer
+\*------------------------------------*/
+
+#footer {
+  background-image: url("../img/footer.png");
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position: 300px 0;
+  text-align: center;
+  color: #FFFFFF;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #3b3b3b;
+}
+
+#footer a {
+  color: #FFFFFF;
+}
+
+.credits {
+  margin-top: 3em;
+  font-size: 15px;
+}
+
+
+
