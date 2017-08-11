@@ -89,26 +89,30 @@ $(document).ready(function() {
     });
 
     // run WIKIPEDIA API to get more info about the artist
-    let wikiURL = "https://en.wikipedia.org/w/api.php";
-    wikiURL += '?' + $.param({
-    'action' : 'opensearch',
-    'search' : artistInput,
-    'prop'  : 'revisions',
-    'rvprop' : 'content',
-    'format' : 'json',
-    'limit' : 2
-    });
-
     $.ajax({
-      url: wikiURL,
-      dataType: 'jsonp',
-      success: function(data) {
-        $('#article').empty();
-        let article = $("<p>").html(data);
-        article.append('<a href="#!" id="more" data-toggle="tooltip" data-placement="right" title="Click Here to Hide">hide</a>');
-        $('#article').append(article);
-      }
-    });
+    url: "https://en.wikipedia.org/w/api.php",
+    data: {
+        format: "json",
+        action: "parse",
+        page: artistInput,
+        prop:"text",
+        section:0,
+    },
+    dataType: 'jsonp',
+    headers: {'Api-User-Agent': 'CBC'},
+    error:function(xhr, textStatus, errorThrown){},
+    success: function (data) {
+      let markup = data.parse.text["*"];
+      let i = $('<div>').html(markup);
+      i.find('a').each(function() { $(this).replaceWith($(this).html()); });
+      i.find('sup').remove();
+      i.find('.mw-ext-cite-error').remove();
+      $('#article').html($(i).find('p'));
+      var article=$('#article').html();
+      var unavailable="<p>Redirect to:</p>"
+      if (article===unavailable){$('#article').html("Sorry, the article you are looking for is not available for publicz")}
+    }
+  });
   } /*function searchBandsInTown end*/
 
   // hide the article when it clicked
