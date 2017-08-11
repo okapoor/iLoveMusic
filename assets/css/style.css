@@ -35,12 +35,17 @@ body {
 	display: block;
 }
 
+.site-search .form-group {
+  display: block;
+}
+
 @media ( min-width: 768px ) {
   .navbar-brand {
     width: auto;
   }
   .site-search {
     margin-top: 50px;
+    width: 400px;
   }
 }
 
