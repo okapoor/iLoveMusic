@@ -52,7 +52,7 @@ $(document).ready(function() {
       error:function(xhr, textStatus, errorThrown){
         $(".noArtist").show();
         $(".noArtist").html("<center><h3>No Artist with that name</h3></center>");
-        $("#youtube, #social, #instagram, #article, #recentSearch, #artist-navigation").hide();
+        $("#youtube, #social, #instagram, #article, #recentSearch, #artist-navigation, #spotify").hide();
         $(".event").hide();
         $(".list").hide();
         $(".eventTable").hide();
