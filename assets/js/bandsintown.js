@@ -110,7 +110,7 @@ $(document).ready(function() {
       $('#article').html($(i).find('p'));
       var article=$('#article').html();
       var unavailable="<p>Redirect to:</p>"
-      if (article===unavailable){$('#article').html("Sorry, the article you are looking for is not available for publicz")}
+      if (article===unavailable){$('#article').html("Sorry, we are unable to find the article.")}
     }
   });
   } /*function searchBandsInTown end*/
