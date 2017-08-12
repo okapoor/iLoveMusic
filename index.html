@@ -36,10 +36,10 @@
           var target = $(this.hash);
           target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
           if (target.length) {
-            $('html,body').animate({
-              scrollTop: target.offset().top
-            }, 800);
-            return false;
+            var navHeight = $("#site-header").height();
+            var pos = target.offset();
+                pos = pos.top - navHeight;
+            $("html,body").animate( { scrollTop: pos },  800 ); return false;
           }
         }
       });
@@ -47,7 +47,7 @@
     });
   </script>
 </head>
-<body data-spy="scroll" data-target="#artist-navigation">
+<body data-spy="scroll" data-target="#artist-navigation" data-offset="192">
 
   <header id="site-header" class="site-header" data-spy="affix" data-offset-top="110">
     <nav class="navbar navbar-default">
